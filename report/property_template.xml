@@ -1,0 +1,79 @@
+<odoo>
+    <template id="report_property_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h1 style="color: black; font-weight: bold; font-size: 25px;">All information in Property
+                            </h1>
+                            <br/>
+                            <table class="table table_condensed" style="margin-top:20px">
+                                <thead>
+                                    <tr>
+                                        <th name="th_slo" class="text-left" style="border: 1px solid black;"
+                                            width="5%">
+                                            <span style="font-weight: bold; font-size: 20px;">SNO.</span>
+                                        </th>
+                                        <th name="th_slo" class="text-left" style="border: 1px solid black;"
+                                            width="20%">
+                                            <span style="font-weight: bold; font-size: 20px;">Name.</span>
+                                        </th>
+                                        <th name="th_slo" class="text-left" style="border: 1px solid black;"
+                                            width="20%">
+                                            <span style="font-weight: bold; font-size: 20px;">Location.</span>
+                                        </th>
+                                        <th name="th_slo" class="text-left" style="border: 1px solid black;"
+                                            width="20%">
+                                            <span style="font-weight: bold; font-size: 20px;">Price.</span>
+                                        </th>
+                                        <th name="th_slo" class="text-left" style="border: 1px solid black;"
+                                            width="20%">
+                                            <span style="font-weight: bold; font-size: 20px;">Description.</span>
+                                        </th>
+                                        <th name="th_slo" class="text-left" style="border: 1px solid black;"
+                                            width="20%">
+                                            <span style="font-weight: bold; font-size: 20px;">State.</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <t t-foreach="docs" t-as="o">
+                                    <tr>
+                                        <td style="border: 1px solid black;">
+                                            <span t-esc="o_index + 1"/>
+                                        </td>
+                                        <td style="border: 1px solid black;">
+                                            <span t-field="o.name"/>
+                                        </td>
+                                        <td style="border: 1px solid black;">
+                                            <span t-field="o.location"/>
+                                        </td>
+                                        <td style="border: 1px solid black;">
+                                            <span t-field="o.price"/>
+                                        </td>
+                                        <td style="border: 1px solid black;">
+                                            <span t-field="o.description"/>
+                                        </td>
+                                        <td style="border: 1px solid black;">
+                                            <span t-field="o.state"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+    <record id="report_property" model="ir.actions.report">
+        <field name="name">Property</field>
+        <field name="model">property</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">property_management.report_property_template</field>
+        <field name="report_file">property_management.report_property_template</field>
+        <field name="binding_model_id" ref="model_property"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <menuitem id="menu_property_manager_root"
+              name="Property"
+              web_icon="property_management/static/description/house-vector-icon.png"
+              sequence="0"/>
+
+    <menuitem id="menu_property"
+              name="Property Management"
+              parent="menu_property_manager_root"
+              sequence="0"/>
+</odoo>
